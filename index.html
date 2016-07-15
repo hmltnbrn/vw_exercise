@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+    <title>VW Exercise</title>
+    <link href='style.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <div id="container"> <!-- Container div -->
+
+      <div id="parameters"> <!-- Mode/parameters/highlighted coordinates div -->
+        <h4>Choose Location or Neighborhood Mode</h4>
+        <label>Location: <input id="location" name="highlight" type="radio" checked /></label><br />
+        <label>Neighbor: <input id="neighbor" name="highlight" type="radio" /></label><br />
+
+        <h4>Parameters Form (alter values and press "enter" or click outside text box to change grid)</h4>
+        <label>Height: <input id="height" class="params" type="number" value="300" /></label><br />
+        <label>Width: <input id="width" class="params" type="number" value="200" /></label><br />
+        <label>N: <input id="number" class="params" type="number" value="10" /></label><br />
+        <label>P: <input id="p" class="params" type="number" value="2" /></label><br />
+        <label>Block Color: <input type="color" id="blockColor" class="params" value="#D3D3D3" /></label><br />
+        <label>Highlight Color: <input type="color" id="highColor" class="params" value="#A9A9A9" /></label><br />
+
+        <h4>Highlighted Node</h4>
+        <label>X-coordinate: <input type="text" id="xCoor" value="" readonly /></label><br />
+        <label>Y-coordinate: <input type="text" id="yCoor" value="" readonly /></label><br />
+        <label>i: <input type="text" id="iVal" value="" readonly /></label><br /><br />
+      </div>
+
+      <div id="grid"></div> <!-- Grid div (manipulated in build.js) -->
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="build.js"></script>
+
+    <script type="text/javascript">
+
+      //updates the grid when parameters are changed
+      $('.params').change(function() {
+
+        var height = $("#height").val();
+        var width = $("#width").val();
+        var number = $("#number").val();
+        var p = $("#p").val();
+        var blockColor = $("#blockColor").val();
+        var highColor = $("#highColor").val();
+
+        build(height, width, number, Number(p), blockColor, highColor);
+
+      });
+
+      //initializes default grid
+      build(300, 200, 10, 2, "#D3D3D3", "#A9A9A9");
+
+    </script>
+
+  </body>
+</html>

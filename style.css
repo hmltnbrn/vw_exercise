@@ -1,0 +1,30 @@
+/*
+ *
+ * Basic stylesheet for grid and parameters
+ * The parameters div will stay fixed on the left side in order to allow for seeing the moused over node if the grid is too big for the screen
+ *
+*/
+
+html, body {
+  width:100%;
+  height:100%;
+}
+#container {
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+#parameters {
+  position:fixed;
+  top:10;
+  left:10;
+  float:left;
+  width:25%;
+  height:100%;
+  z-index:999;
+}
+#grid {
+  float:right;
+  width:75%;
+  height:100%;
+}
